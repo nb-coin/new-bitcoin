@@ -5,9 +5,11 @@ We want to reconstruct bitcoin system, since it has been developped for 10 years
 
 The project still in developping, we are constructing from zero line of source code, and in first phase we will release a concise system that assume carry out functional verification.
 
-### Install
+The project is written in python, it supports Python2.7+ or Python3.4+
 
-Setup package not ready yet, please clone the project to your local machine, and put it to python's library directory. 
+### Install the project
+
+Setup package not ready yet, please clone the project, and put it to python's library directory in your machine. 
 
 Current version only can run in MAC OS.
 
