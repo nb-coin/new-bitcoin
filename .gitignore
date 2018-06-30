@@ -1,0 +1,12 @@
+# Python specifics
+
+*.pyc
+*.pyo
+
+# MacOSX specifics
+
+.DS_Store
+
+# product specifics
+
+*.bak
