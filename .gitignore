@@ -3,6 +3,8 @@
 *.pyc
 *.pyo
 
+__pycache__
+
 # MacOSX specifics
 
 .DS_Store

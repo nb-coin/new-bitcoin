@@ -9,14 +9,14 @@ import traceback
 from .. import util
 from .. import protocol
 
-BLOCK_SIZE = 8192
+BLOCK_SIZE = 8192             # one receive block size
 
 _SECONDS_OF_30M  = 30 * 60    #  30 Minutes * 60
 _SECONDS_OF_5M   = 5 * 60     #   5 Minutes * 60
 _SECONDS_OF_180M = 180 * 60   # 180 Minutes * 60
 
 class Connection(asyncore.dispatcher):
-  'Handles buffering input and output into messages and call command_xx'
+  'Handles buffering input and output into messages and call command_xxx'
   
   SERVICES = protocol.SERVICE_NODE_NETWORK
   
@@ -43,7 +43,7 @@ class Connection(asyncore.dispatcher):
     self._banscore = 0
     self._verack = False # get version acknowledgement or not
     
-    if sock:  # sock come from accept
+    if sock:  # sock come from listen-accept
       asyncore.dispatcher.__init__(self,sock=sock,map=node) # map: a dictionary whose items are the channels to watch
       self._incoming = True
     else:     # we using an address to connect to
@@ -98,7 +98,7 @@ class Connection(asyncore.dispatcher):
   def add_banscore(self, penalty=1):
     self._banscore += penalty
   
-  def reduce_banscore(self, penalty = 1):
+  def reduce_banscore(self, penalty=1):
     i = self._banscore - penalty
     self._banscore = 0 if i < 0 else i
   
@@ -113,7 +113,7 @@ class Connection(asyncore.dispatcher):
       self.send_message(protocol.Ping(os.urandom(8)))
       self._last_ping_time = time.time()
     
-    # it's been over 3 hours... disconnect
+    # it's been over 3 hours, just disconnect
     if self._last_rx_time and rx_ago > _SECONDS_OF_180M:
       self.handle_close()
       return False

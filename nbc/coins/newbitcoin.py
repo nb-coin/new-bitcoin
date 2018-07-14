@@ -20,13 +20,13 @@ class Newbitcoin(coin.Coin):
 
     # See: https://en.bitcoin.it/wiki/Satoshi_Client_Node_Discovery
     #      https://github.com/bitcoin/bitcoin/blob/master/src/chainparams.cpp#L143
-    dns_seeds = [
-        ("seed.bitcoin.sipa.be", 8333),
-        ("dnsseed.bluematt.me", 8333),
-        ("dnsseed.bitcoin.dashjr.org", 8333),
-        ("seed.bitcoinstats.com", 8333),
-        ("seed.bitnodes.io", 8333),
-        ("bitseed.xf2.org", 8333),
+    dns_seeds = [ ("127.0.0.1",20303),
+#        ("seed.bitcoin.sipa.be", 8333),
+#        ("dnsseed.bluematt.me", 8333),
+#        ("dnsseed.bitcoin.dashjr.org", 8333),
+#        ("seed.bitcoinstats.com", 8333),
+#        ("seed.bitnodes.io", 8333),
+#        ("bitseed.xf2.org", 8333),
     ]
 
     port = 8333
